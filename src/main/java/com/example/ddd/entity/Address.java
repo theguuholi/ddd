@@ -6,7 +6,7 @@ public class Address {
     private String city;
     private String zip;
 
-    public Address(String street, int number, String city, String zip) throws RuntimeException {
+    public Address(String street, int number, String city, String zip) {
         this.street = street;
         this.number = number;
         this.city = city;
@@ -15,9 +15,9 @@ public class Address {
         this.validate();
     }
 
-    private void validate() throws RuntimeException {
-        if(this.street.isEmpty()) {
-            throw new RuntimeException("Street is required!");
+    private void validate() {
+        if (this.street.isEmpty()) {
+            throw new IllegalArgumentException("Street is required!");
         }
     }
 
