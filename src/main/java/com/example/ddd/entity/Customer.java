@@ -13,18 +13,18 @@ public class Customer {
     Address address;
     boolean active; // um set ou get active nao significa nada.
 
-    public Customer(String id, String name) throws Exception {
+    public Customer(String id, String name) throws RuntimeException {
         this.id = id;
         this.name = name;
         this.validate();
     }
 
-    private void validate() throws Exception {
+    private void validate() throws RuntimeException {
         if (this.name.isEmpty()) {
-            throw new Exception("Name is required");
+            throw new RuntimeException("Name is required");
         }
         if (this.id.isEmpty()) {
-            throw new Exception("ID is required");
+            throw new RuntimeException("ID is required");
         }
     }
 
@@ -44,7 +44,7 @@ public class Customer {
 
     // a diferenca e gritante pq aqui estamos tendo regra de negocio
     // modelagem do dominio rico expressa o negocio
-    public void activate() throws Exception {
+    public void activate() throws RuntimeException {
         if(this.address == null) {
             throw new RuntimeException("Address is mandatory to active the user");
         }
