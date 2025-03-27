@@ -10,13 +10,22 @@ package com.example.ddd.entity;
 public class Customer {
     String id; // entity se define com o ID pq ele e UNICO
     String name;
-    String address;
-    boolean active; // um set ou get active nao significa nada. 
+    Address address;
+    boolean active; // um set ou get active nao significa nada.
 
-    public Customer(String id, String name, String address) {
+    public Customer(String id, String name, String address) throws Exception {
         this.id = id;
         this.name = name;
-        this.address = address;
+        this.validate();
+    }
+
+    private void validate() throws Exception {
+        if (this.name.length() == 0) {
+            throw new Exception("Name is required");
+        }
+        if (this.id.length() == 0) {
+            throw new Exception("ID is required");
+        }
     }
 
     // ele esta aqui por esta, por ser uma classe anemica, esta mudando sem nenhuma
@@ -35,13 +44,24 @@ public class Customer {
 
     // a diferenca e gritante pq aqui estamos tendo regra de negocio
     // modelagem do dominio rico expressa o negocio
-    void activate() {
+    void activate() throws Exception {
+        if(this.address == null) {
+            throw new Exception("Address is mandatory to active the user");
+        }
         this.active = true;
     }
 
+    // a entidade sempre vai ter que representar o estado correto e atual daquele
+    // elemento
+    // modelagem de dominio rico tem que garantir que os dados estao consistentes
+    // 100% das vezes tem que estar consistente, nem mesmo o id tem representacao no
+    // banco de dados
     void deactivate() {
         this.active = false;
     }
 
+    void setAddress(Address address) {
+        this.address = address;
+    }
 
 }
