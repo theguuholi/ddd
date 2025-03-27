@@ -20,10 +20,10 @@ public class Customer {
     }
 
     private void validate() throws Exception {
-        if (this.name.length() == 0) {
+        if (this.name.isEmpty()) {
             throw new Exception("Name is required");
         }
-        if (this.id.length() == 0) {
+        if (this.id.isEmpty()) {
             throw new Exception("ID is required");
         }
     }
@@ -46,7 +46,7 @@ public class Customer {
     // modelagem do dominio rico expressa o negocio
     public void activate() throws Exception {
         if(this.address == null) {
-            throw new Exception("Address is mandatory to active the user");
+            throw new RuntimeException("Address is mandatory to active the user");
         }
         this.active = true;
     }

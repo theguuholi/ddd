@@ -16,8 +16,8 @@ public class Address {
     }
 
     private void validate() throws Exception {
-        if(this.street.length() == 0) {
-            throw new Exception("Street is required!");
+        if(this.street.isEmpty()) {
+            throw new RuntimeException("Street is required!");
         }
     }
 
