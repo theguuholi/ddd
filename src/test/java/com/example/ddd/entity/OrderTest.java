@@ -22,10 +22,10 @@ class OrderTest {
 
     @Test
     void givenAnOrderThenCalculateTotal() {
-        var item = new OrderItem("1", "1", 1);
-        var item2 = new OrderItem("2", "2", 2);
+        var item = new OrderItem("1", "1", 1, "123", 2);
+        var item2 = new OrderItem("2", "2", 2,  "123", 1);
         var order = new Order("123", "Gustavo", Arrays.asList(item, item2));
-        assertEquals(3, order.total());
+        assertEquals(4, order.total());
     }
 
 }
