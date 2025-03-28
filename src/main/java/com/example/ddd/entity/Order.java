@@ -14,10 +14,4 @@ public class Order {
         this.orderItem = orderItem;
     }
 
-    @Override
-    public String toString() {
-        return "Order [id=" + id + ", customerId=" + customerId + ", orderItem=" + orderItem + "]";
-    }
-
-    
 }
