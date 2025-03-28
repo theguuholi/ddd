@@ -18,7 +18,7 @@ class CustomerTest {
         assertEquals("Name is required", exception.getMessage());
     }
 
-    @Test 
+    @Test
     void givenACustomerWhenChangeNameThenUpdateEntityWithNewName() {
         var customer = new Customer("123", "Gus");
         customer.changeName("Gustavo");
@@ -26,8 +26,18 @@ class CustomerTest {
     }
 
     @Test
+    void givenACustomerWhenTriesToActiveWithouAddressThenThrowAnError() {
+        var customer = new Customer("123", "Gus");
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> customer.activate());
+
+        assertEquals("Address is mandatory to active the user", exception.getMessage());
+    }
+
+    @Test
     void givenACustomerWhenActiveWithoutAddressThenThrowError() {
         var customer = new Customer("123", "Gus");
+        var address = new Address("test", 123, "gus", "123123");
+        customer.setAddress(address);
         customer.activate();
         assertEquals(true, customer.isActive());
     }

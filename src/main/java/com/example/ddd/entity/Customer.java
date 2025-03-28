@@ -65,7 +65,7 @@ public class Customer {
     }
 
     public boolean isActive() {
-        this.active;
+        return this.active;
     }
 
 }
