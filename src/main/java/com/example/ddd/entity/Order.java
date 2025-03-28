@@ -12,6 +12,10 @@ public class Order {
         if (id.isEmpty()) {
             throw new IllegalArgumentException("ID is required");
         }
+
+        if(orderItem.isEmpty()) {
+            throw new IllegalArgumentException("Items are required");
+        }
         this.id = id;
         this.customerId = customerId;
         this.orderItem = orderItem;
