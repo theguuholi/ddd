@@ -9,6 +9,9 @@ public class Order {
     private List<OrderItem> orderItem = new ArrayList<OrderItem>();
 
     public Order(String id, String customerId, List<OrderItem> orderItem) {
+        if (id.isEmpty()) {
+            throw new IllegalArgumentException("ID is required");
+        }
         this.id = id;
         this.customerId = customerId;
         this.orderItem = orderItem;
