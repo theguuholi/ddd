@@ -17,4 +17,11 @@ class CustomerTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> new Customer("123", ""));
         assertEquals("Name is required", exception.getMessage());
     }
+
+    @Test 
+    void givenACustomerWhenChangeNameThenUpdateEntityWithNewName() {
+        var customer = new Customer("123", "Gus");
+        customer.changeName("Gustavo");
+        assertEquals(customer.name, "Gustavo");
+    }
 }
