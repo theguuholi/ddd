@@ -41,4 +41,14 @@ class CustomerTest {
         customer.activate();
         assertEquals(true, customer.isActive());
     }
+
+    @Test
+    void givenACustomerWhenDeactiveThenReturnFalse() {
+        var customer = new Customer("123", "Gus");
+        var address = new Address("test", 123, "gus", "123123");
+        customer.setAddress(address);
+        customer.activate();
+        customer.deactivate();
+        assertEquals(false, customer.isActive());
+    }
 }
