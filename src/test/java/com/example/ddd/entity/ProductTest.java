@@ -27,7 +27,7 @@ class ProductTest {
     void givenAProductWhenTryToChangeNameThenReturnTheActualEntity() {
         var product = new Product("123", "pumpkin", 123);
         product.changeName("Gustavo");
-        assertEquals(product.getName(), "Gustavo");
+        assertEquals("Gustavo", product.getName());
     }
 
 }
