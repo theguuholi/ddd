@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    String id;
-    String customerId;
-    List<OrderItem> orderItem = new ArrayList<OrderItem>();
+    private String id;
+    private String customerId;
+    private List<OrderItem> orderItem = new ArrayList<OrderItem>();
 
     public Order(String id, String customerId, List<OrderItem> orderItem) {
         this.id = id;
