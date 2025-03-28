@@ -64,4 +64,8 @@ public class Customer {
         this.address = address;
     }
 
+    public boolean isActive() {
+        this.active;
+    }
+
 }

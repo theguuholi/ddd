@@ -22,6 +22,13 @@ class CustomerTest {
     void givenACustomerWhenChangeNameThenUpdateEntityWithNewName() {
         var customer = new Customer("123", "Gus");
         customer.changeName("Gustavo");
-        assertEquals(customer.name, "Gustavo");
+        assertEquals("Gustavo", customer.name);
+    }
+
+    @Test
+    void givenACustomerWhenActiveWithoutAddressThenThrowError() {
+        var customer = new Customer("123", "Gus");
+        customer.activate();
+        assertEquals(true, customer.isActive());
     }
 }
