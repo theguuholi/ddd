@@ -12,4 +12,8 @@ public class OrderItem {
         this.price = price;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
 }

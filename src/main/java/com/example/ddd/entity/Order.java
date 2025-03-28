@@ -14,4 +14,8 @@ public class Order {
         this.orderItem = orderItem;
     }
 
+    public int total() {
+        return orderItem.stream().map(OrderItem::getPrice).reduce(0, Integer::sum);
+    }
+
 }
