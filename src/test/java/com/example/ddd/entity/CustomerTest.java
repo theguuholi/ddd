@@ -51,4 +51,16 @@ class CustomerTest {
         customer.deactivate();
         assertEquals(false, customer.isActive());
     }
+
+    @Test
+    void shouldAddRewardPoints() {
+        var customer = new Customer("123", "Gus");
+        assertEquals(0, customer.getRewardPoints());
+
+        customer.addRewardPoints(10);
+        assertEquals(10, customer.getRewardPoints());
+
+        customer.addRewardPoints(20);
+        assertEquals(30, customer.getRewardPoints());
+    }
 }
