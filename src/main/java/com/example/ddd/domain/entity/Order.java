@@ -1,4 +1,4 @@
-package com.example.ddd.entity;
+package com.example.ddd.domain.entity;
 
 import java.util.ArrayList;
 import java.util.List;

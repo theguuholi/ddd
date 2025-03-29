@@ -1,4 +1,4 @@
-package com.example.ddd.entity;
+package com.example.ddd.domain.entity;
 
 // Cria baseado com a orientacao ao ORM
 // Entity tem regras de NEGOCIO!!
@@ -12,6 +12,7 @@ public class Customer {
     String name;
     Address address;
     boolean active; // um set ou get active nao significa nada.
+    private int rewardPoints = 0;
 
     public Customer(String id, String name) {
         this.id = id;
@@ -66,6 +67,18 @@ public class Customer {
 
     public boolean isActive() {
         return this.active;
+    }
+
+    public void addRewardPoints(int points) {
+        this.rewardPoints += points;
+    }
+
+    public int getRewardPoints() {
+        return this.rewardPoints;
+    }
+
+    public String getId() {
+        return this.id;
     }
 
 }

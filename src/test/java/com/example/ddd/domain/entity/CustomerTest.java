@@ -1,8 +1,10 @@
-package com.example.ddd.entity;
+package com.example.ddd.domain.entity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
+
+
 
 class CustomerTest {
 
@@ -28,7 +30,7 @@ class CustomerTest {
     @Test
     void givenACustomerWhenTriesToActiveWithouAddressThenThrowAnError() {
         var customer = new Customer("123", "Gus");
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> customer.activate());
+        Throwable exception = assertThrows(IllegalArgumentException.class, customer::activate);
 
         assertEquals("Address is mandatory to active the user", exception.getMessage());
     }
@@ -50,5 +52,17 @@ class CustomerTest {
         customer.activate();
         customer.deactivate();
         assertEquals(false, customer.isActive());
+    }
+
+    @Test
+    void shouldAddRewardPoints() {
+        var customer = new Customer("123", "Gus");
+        assertEquals(0, customer.getRewardPoints());
+
+        customer.addRewardPoints(10);
+        assertEquals(10, customer.getRewardPoints());
+
+        customer.addRewardPoints(20);
+        assertEquals(30, customer.getRewardPoints());
     }
 }
