@@ -1,6 +1,7 @@
 package com.example.ddd.domain.entity;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -17,8 +18,9 @@ class OrderTest {
 
     @Test
     void givenAnOrderWhenItDoesNotHaveItemThrowError() {
+        List<OrderItem> list = Arrays.asList();
         Throwable exception = assertThrows(IllegalArgumentException.class,
-                () -> new Order("123", "Gustavo", Arrays.asList()));
+                () -> new Order("123", "Gustavo", list));
         assertEquals("Items are required", exception.getMessage());
     }
 
