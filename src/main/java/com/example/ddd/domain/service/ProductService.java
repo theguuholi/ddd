@@ -1,8 +1,9 @@
-package com.example.ddd.services;
+package com.example.ddd.domain.service;
 
 import java.util.List;
 
-import com.example.ddd.entity.Product;
+import com.example.ddd.domain.entity.Product;
+
 
 public class ProductService {
 

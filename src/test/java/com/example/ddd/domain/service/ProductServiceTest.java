@@ -1,12 +1,12 @@
-package com.example.ddd.service;
+package com.example.ddd.domain.service;
 
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-import com.example.ddd.entity.Product;
-import com.example.ddd.services.ProductService;
+import com.example.ddd.domain.entity.Product;
+
 
 class ProductServiceTest {
     @Test

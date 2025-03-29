@@ -1,11 +1,11 @@
-package com.example.ddd.entity;
+package com.example.ddd.domain.entity;
 
 public class OrderItem {
 
     String id;
     String name;
     int price;
-    private String productId;
+    String productId;
 
     public OrderItem(String id, String name, int price, String productId, int quantity) {
         this.id = id;

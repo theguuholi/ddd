@@ -1,4 +1,4 @@
-package com.example.ddd.entity;
+package com.example.ddd.domain.entity;
 
 // Cria baseado com a orientacao ao ORM
 // Entity tem regras de NEGOCIO!!

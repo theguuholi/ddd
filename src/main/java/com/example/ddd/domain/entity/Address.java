@@ -1,4 +1,4 @@
-package com.example.ddd.entity;
+package com.example.ddd.domain.entity;
 
 public class Address {
     private String street;

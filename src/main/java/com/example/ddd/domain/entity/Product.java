@@ -1,7 +1,7 @@
-package com.example.ddd.entity;
+package com.example.ddd.domain.entity;
 
 public class Product {
-    private String id;
+    private final String id;
     private String name;
     private int price;
 

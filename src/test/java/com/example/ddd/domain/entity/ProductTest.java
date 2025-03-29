@@ -1,4 +1,4 @@
-package com.example.ddd.entity;
+package com.example.ddd.domain.entity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

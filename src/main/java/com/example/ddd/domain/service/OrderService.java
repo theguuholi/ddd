@@ -3,14 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package com.example.ddd.service;
+package com.example.ddd.domain.service;
 
 import java.util.List;
 import java.util.UUID;
 
-import com.example.ddd.entity.Customer;
-import com.example.ddd.entity.Order;
-import com.example.ddd.entity.OrderItem;
+import com.example.ddd.domain.entity.Customer;
+import com.example.ddd.domain.entity.Order;
+import com.example.ddd.domain.entity.OrderItem;
 
 class OrderService {
 
@@ -18,7 +18,7 @@ class OrderService {
         return orders.stream().map(Order::total).reduce(0, Integer::sum);
     }
 
-    static Order placeOrder(Customer customer, List<OrderItem> items) {
+    public static Order placeOrder(Customer customer, List<OrderItem> items) {
         if (items.isEmpty()) {
             throw new IllegalArgumentException("Order must have at least one item");
         }
