@@ -32,4 +32,12 @@ public class Product {
         this.name = aName;
 	}
 
+    public Integer getPrice() {
+        return this.price;
+    }
+
+    public void changePrice(int newPrice) {
+        this.price = newPrice;
+    }
+
 }
