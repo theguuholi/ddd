@@ -14,6 +14,9 @@ import com.example.ddd.domain.entity.OrderItem;
 
 class OrderService {
 
+    private OrderService() {
+    }
+
     public static int total(List<Order> orders) {
         return orders.stream().map(Order::total).reduce(0, Integer::sum);
     }

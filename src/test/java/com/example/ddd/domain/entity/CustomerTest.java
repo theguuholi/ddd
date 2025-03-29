@@ -30,7 +30,7 @@ class CustomerTest {
     @Test
     void givenACustomerWhenTriesToActiveWithouAddressThenThrowAnError() {
         var customer = new Customer("123", "Gus");
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> customer.activate());
+        Throwable exception = assertThrows(IllegalArgumentException.class, customer::activate);
 
         assertEquals("Address is mandatory to active the user", exception.getMessage());
     }

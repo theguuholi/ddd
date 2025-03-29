@@ -3,12 +3,12 @@ package com.example.ddd.domain.service;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 import com.example.ddd.domain.entity.Customer;
 import com.example.ddd.domain.entity.Order;
 import com.example.ddd.domain.entity.OrderItem;
-
 
 class OrderServiceTest {
 
@@ -25,7 +25,7 @@ class OrderServiceTest {
         assertEquals(500, total);
     }
 
-    @Test 
+    @Test
     void itShouldPlaceAnOrder() {
         var customer = new Customer("123d", "Gustavo");
         var item = new OrderItem("o1", "item 1", 10, "p1", 1);
@@ -33,5 +33,14 @@ class OrderServiceTest {
         var order = OrderService.placeOrder(customer, Arrays.asList(item));
         assertEquals(5, customer.getRewardPoints());
         assertEquals(10, order.total());
+    }
+
+    @Test
+    void itShouldThrowErrorPlaceAnOrder() {
+        var customer = new Customer("123d", "Gustavo");
+        Throwable exception = assertThrows(IllegalArgumentException.class,
+                () -> OrderService.placeOrder(customer, Arrays.asList()));
+        assertEquals("Order must have at least one item", exception.getMessage());
+
     }
 }
